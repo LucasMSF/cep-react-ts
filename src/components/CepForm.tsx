@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import InputMask from 'react-input-mask';
 
 type Props = {
-    getCep(cep: string): any
+    getCep(cep: string): void
 }
 
 const CepForm = (props: Props) => {
@@ -10,7 +10,8 @@ const CepForm = (props: Props) => {
 
     const handleSubmit =  async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        props.getCep(cep);     
+        if(cep !== '') props.getCep(cep)
+        else alert('Preencha o campo!');          
     }
 
     return (

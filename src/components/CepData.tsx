@@ -1,7 +1,8 @@
 import React from 'react'
+import { Cep } from '../types/cep'
 
 type Props = {
-    data: any
+    data: Cep
 }
 
 const CepData = (props: Props) => {

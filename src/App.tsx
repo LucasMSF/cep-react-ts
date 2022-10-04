@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import CepData from './components/CepData';
 import CepForm from './components/CepForm';
 import { FiMapPin } from 'react-icons/fi'
+import { Cep } from './types/cep';
 
 function App() {
-  const [cepData, setCepData] = useState({});
+  const [cepData, setCepData] = useState({} as Cep);
 
   const getCep = async (cep: string) => {
     try {
