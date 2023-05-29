@@ -1,30 +1,10 @@
-import React, { useState } from 'react';
 import CepData from './components/CepData';
 import CepForm from './components/CepForm';
 import { FiMapPin } from 'react-icons/fi'
-import { Cep } from './types/cep';
+import { useCep } from './hooks/useCep';
 
 function App() {
-  const [cepData, setCepData] = useState({} as Cep);
-
-  const getCep = async (cep: string) => {
-    try {
-      const URL = `https://viacep.com.br/ws/${cep}/json/`;
-      const res = await fetch(URL);
-      const body = await res.json();
-
-      if (body.erro) {
-        alert('CEP inválido');
-        return;
-      }
-
-      setCepData(body);
-
-    } catch (error) {
-      alert('Erro na API')
-    }
-  }
-
+  const {cepData, getCep} = useCep();
 
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center font-mono">
